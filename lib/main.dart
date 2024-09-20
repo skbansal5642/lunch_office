@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:lunch_office/home_page.dart';
-import 'package:lunch_office/home_provider.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:lunch_office/screens/consumer.dart';
+import 'package:lunch_office/screens/example.dart';
+// import 'package:lunch_office/screens/home_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -13,22 +14,17 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider<HomeProvider>(create: (_) => HomeProvider()),
-      ],
-      child: MaterialApp(
-        title: 'Lunch Office',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.brown.shade100),
-          useMaterial3: true,
-        ),
-        initialRoute: HomePageScreen.route,
-        routes: {
-          HomePageScreen.route: (context) => const HomePageScreen(),
-        },
-        debugShowCheckedModeBanner: false,
+    return MaterialApp(
+      title: 'Lunch Office',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.brown.shade100),
+        useMaterial3: true,
       ),
+      initialRoute: Example.route,
+      routes: {
+        Example.route: (context) => Example(),
+      },
+      debugShowCheckedModeBanner: false,
     );
   }
 }

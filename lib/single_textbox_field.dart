@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:lunch_office/common_text_form_field.dart';
-import 'package:lunch_office/constants.dart';
+import 'package:lunch_office/utils/common_text_form_field.dart';
+import 'package:lunch_office/utils/constants.dart';
 
 class SingleEditProfileField extends StatelessWidget {
   const SingleEditProfileField({
